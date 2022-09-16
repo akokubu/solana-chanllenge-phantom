@@ -52,6 +52,24 @@ function App() {
   // create state variable for the walletKey
   const [walletKey, setWalletKey] = useState<String | undefined>(undefined);
 
+  const disconnectWallet = async () => {
+    // @ts-ignore
+    const { solana } = window;
+
+    // checks if phantom wallet exists
+    if (solana) {
+      try {
+        // connect wallet and returns response which includes the wallet public key
+        await solana.disconnect();
+        console.log(provider);
+        console.log("disconnect wallet");
+        setWalletKey("");
+      } catch (err) {
+        // { code: 4001, message: 'User reject the request.' }
+      }
+    }
+  };
+
   const connectWallet = async () => {
     // @ts-ignore
     const { solana } = window;
@@ -96,7 +114,25 @@ function App() {
             Connect Wallet
           </button>
         )}
-        {provider && walletKey && <p>Connected {walletKey}</p>}
+        {provider && walletKey && (
+          <>
+            <p>Connected {walletKey}</p>
+            <button
+              style={{
+                position: "absolute",
+                right: 10,
+                top: 10,
+                fontSize: "16px",
+                padding: "15px",
+                fontWeight: "bold",
+                borderRadius: "5px",
+              }}
+              onClick={disconnectWallet}
+            >
+              Disconnect Wallet
+            </button>
+          </>
+        )}
 
         {!provider && (
           <p>
