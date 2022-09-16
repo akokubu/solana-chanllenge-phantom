@@ -50,9 +50,7 @@ function App() {
   );
 
   // create state variable for the walletKey
-  const [walletKey, setWalletKey] = useState<PhantomProvider | undefined>(
-    undefined
-  );
+  const [walletKey, setWalletKey] = useState<String | undefined>(undefined);
 
   const connectWallet = async () => {
     // @ts-ignore
@@ -98,7 +96,7 @@ function App() {
             Connect Wallet
           </button>
         )}
-        {provider && walletKey && <p>Connected account</p>}
+        {provider && walletKey && <p>Connected {walletKey}</p>}
 
         {!provider && (
           <p>
