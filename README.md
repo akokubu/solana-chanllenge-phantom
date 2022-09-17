@@ -1,3 +1,11 @@
+## Challenge
+add a button to disconnect from the Phantom Wallet.
+
+1. Complete the previous lessons and create a “Connect” button for Phantom Wallet connection.
+2. Once you are connected, you should be able to see an address on the screen - which is the address of the current connected account.
+3. Add a Disconnect button functionality - a button on the top right side of the screen.
+4. Upon clicking this button, you should be disconnected from the current Phantom wallet instance and the “Connect” button should re-appear.
+
 <img width="852" alt="image" src="https://user-images.githubusercontent.com/718424/190675977-5377094f-303f-4083-959c-d4205d4aa4fb.png">
 <img width="858" alt="image" src="https://user-images.githubusercontent.com/718424/190675927-5a3db944-878f-4ec3-a14d-033cb009935b.png">
 
